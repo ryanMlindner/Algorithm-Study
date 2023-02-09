@@ -20,12 +20,8 @@ import csv
 
 ##obtain input of a (probably) unsorted list of items through I/O or from file
 
-#placeholder
-
-testArray = np.array([10,5,3,5,24,1,19,34,6,42,22])
-A = testArray
-
-heapSize = A.len()
+A = np.array([10,5,3,5,24,1,19,34,6,42,22]) #placeholder
+heapSize = A.size
 #readability
 def valueOf(A, arrayIndex):
     return A[arrayIndex-1]
@@ -79,11 +75,14 @@ def heapifyRecursive(A, index):
 def heapsort(A):
     print(A)
     buildHeap(A)
-    startingIndex = A.len()
+    startingIndex = A.size
     while (startingIndex >= 2):
+        #TODO this is wrong lol
         exchangeValue(A, startingIndex, 1)
-        heapSize -= 1
+        global heapSize
+        heapSize = heapSize - 1
         heapifyRecursive(A, 1)
+        startingIndex -= 1
     print(A)
 
 if __name__ == '__main__':
