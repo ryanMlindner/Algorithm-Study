@@ -21,10 +21,12 @@ import csv
 ##obtain input of a (probably) unsorted list of items through I/O or from file
 
 #placeholder
-sourceArray = np.array([10,5,3,5,24,1,19,34,6,42,22])
-A = sourceArray
+
+testArray = np.array([10,5,3,5,24,1,19,34,6,42,22])
+A = testArray
+
 heapSize = A.len()
-##readability
+#readability
 def valueOf(A, arrayIndex):
     return A[arrayIndex-1]
 
@@ -33,19 +35,20 @@ def exchangeValue(A, swap0, swap1):
     index1 = swap1 - 1
     A[index0], A[index1] = A[index1], A[index0]
 
-##inline macros for moving around the heap
+#inline macros for moving around the heap
 def left(index): return 2*index
 def right(index): return 2*index + 1
 def parent(index): return int(index/2)
 
-##build a heap with the size of the array
+#build a heap with the size of the array
 def buildHeap(A):
     startingIndex = int(heapSize/2)
     while (startingIndex >= 1):
         heapifyRecursive(A, startingIndex)
         startingIndex -= 1
+    print(A)
 
-##heapifyRecursive changes the order of items in the array in order to maintain the heap property
+#heapifyRecursive changes the order of items in the array in order to maintain the heap property
 def heapifyRecursive(A, index):
     l = left(index)
     r = right(index)
@@ -73,19 +76,15 @@ def heapifyRecursive(A, index):
 # swap largest and original, add the index of largest to the stack
 # ends when stack is empty
 
-##TODO heapsort
 def heapsort(A):
+    print(A)
     buildHeap(A)
     startingIndex = A.len()
     while (startingIndex >= 2):
         exchangeValue(A, startingIndex, 1)
         heapSize -= 1
         heapifyRecursive(A, 1)
-    
-##heapsort uses the built heap to sort into an ordered array of size n
-# iterate over the array from max length down to index (2)
-# take the element at A[1] and replace it with A[i]
-# call heapify at A[1] with the new value to restore the heap property
-# result is a sorted list of items
+    print(A)
 
-##TODO flow control for calling the sort
+if __name__ == '__main__':
+    heapsort(A)
