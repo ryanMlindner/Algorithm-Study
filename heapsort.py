@@ -10,7 +10,8 @@
 ##definitions for heapsort
 # heap property states that for every node (i) other than the root
 # of the tree (A[1]), A[parent(i)] >= A[i]
-# heapsort uses heapify() to turn an array into a heap, and then sorts by taking the first item of the heap
+# heapsort uses heapify() to turn an array into a heap, and then sorts
+# by taking the first item of the heap
 # swapping it with the last item of the array, and decrementing heap size
 # so that a shrinking heap is replaced with a growing sorted list in the same array
 
