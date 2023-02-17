@@ -78,7 +78,6 @@ def heapsort(A):
     buildHeap(A)
     startingIndex = A.size
     while (startingIndex >= 2):
-        #TODO this is wrong lol
         exchangeValue(A, startingIndex, 1)
         global heapSize
         heapSize = heapSize - 1
