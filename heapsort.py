@@ -17,6 +17,7 @@
 ##import packages, dependencies
 import numpy as np
 import csv
+import pdb
 
 ##obtain input of a (probably) unsorted list of items through I/O or from file
 
@@ -52,7 +53,7 @@ def heapifyRecursive(A, index):
         largest = l
     else:
         largest = index
-    if r <= heapSize and valueOf(A, r) > valueOf(A, index):
+    if r <= heapSize and valueOf(A, r) > valueOf(A, largest):
         largest = r
     
     if largest != index:
